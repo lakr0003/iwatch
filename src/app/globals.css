@@ -1,0 +1,233 @@
+/* @import "tailwindcss"; */
+
+:root {
+  --background: linear-gradient(294deg, #c8dce5 0%, #b6ccda 100%);
+  --color: #fff;
+  --hover: #c1d6e1;
+
+  /*watch*/
+  --navy: #2b2f3c;
+  --mint: #8ae1d6;
+  --ocean: #f4c7b8;
+
+  /*font*/
+  --font-poppins: "Poppins", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--color);
+  font-family: var(--font-poppins);
+}
+main {
+  margin: 2rem;
+
+  h1 {
+    font-size: 4.5rem;
+    font-family: var(--font-poppins);
+    font-weight: 800;
+  }
+
+  h2 {
+    font-family: var(--font-poppins);
+    font-size: 4.5rem;
+    font-weight: 300;
+    color: var(--color);
+    margin-top: 0;
+  }
+
+  /* Navbar */
+  .navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    color: var(--color);
+
+    .logo img {
+      width: 35px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+
+      a {
+        text-decoration: none;
+        color: var(--color);
+        font-weight: 500;
+        font-size: 16px;
+        transition: 0.3s;
+
+        .active,
+        &:hover {
+          color: var(--hover);
+          background-color: var(--color);
+          padding: 6px 14px;
+          border-radius: 20px;
+        }
+      }
+    }
+    .icons {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      img {
+        width: 20px;
+        margin-left: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  /* Hero Section */
+  .hero {
+    align-items: center;
+
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 0.1fr;
+    gap: 10px;
+
+    .text-content {
+      .buy-btn {
+        border: 2px solid var(--color);
+        background: transparent;
+        color: var(--color);
+        padding: 14px 40px;
+        border-radius: 50px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 3rem;
+
+        &:hover {
+          background: var(--color);
+          color: var(--hover);
+        }
+      }
+    }
+  }
+
+  /* Watch + Color options */
+  .watch-image {
+    position: relative;
+    text-align: center;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .color-dots {
+      position: absolute;
+      right: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .dot {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+
+        &:hover {
+          border: 2px solid var(--color);
+        }
+      }
+      .dot.clicked {
+        border: 2px solid var(--color);
+        transform: scale(1.1);
+      }
+      .dark {
+        background-color: var(--navy);
+      }
+      .mint {
+        background-color: var(--mint);
+      }
+      .ocean {
+        background-color: var(--ocean);
+      }
+      .active {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .color-options {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+
+    .optionnavy::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: var(--navy);
+      opacity: 60%;
+      width: 131px;
+      height: 70px;
+      z-index: -1;
+      border-radius: 10px;
+    }
+
+    .optionMint::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: var(--mint);
+      opacity: 60%;
+      width: 131px;
+      height: 70px;
+      z-index: -1;
+      border-radius: 10px;
+    }
+
+    .optionOcean::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: var(--ocean);
+      opacity: 60%;
+      width: 131px;
+      height: 70px;
+      z-index: -1;
+      border-radius: 10px;
+    }
+
+    figure {
+      display: block;
+      position: relative;
+      cursor: pointer;
+
+      img {
+        width: 120px;
+        height: auto;
+        border-radius: 20px;
+        padding: 10px;
+        transition: 0.3s;
+        object-fit: cover;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+}
